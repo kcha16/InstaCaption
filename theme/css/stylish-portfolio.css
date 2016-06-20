@@ -5,6 +5,23 @@
  */
 
 /* Global Styles */
+#image_input{
+    cursor: pointer;
+    margin-left: 350px;
+}
+#blah{
+    margin-top: 20px;
+    margin-left: 240px;
+}
+#portfolio{
+    background-color: #bfbfbf;
+}
+#image_title{
+    color: maroon;
+   /* font-weight: bold;*/
+    font-size: 45px;
+    font-family: cursive;
+}
 
 html,
 body {
