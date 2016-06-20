@@ -12,7 +12,7 @@ $http({
   url: finalClarUrl,
 }).then(function(response) {
   console.log(response.results.classes);
-  pic tags = response.results.classes;
+  pictags = response.results.classes;
 
 });
 
