@@ -14,13 +14,12 @@
     margin-left: 240px;
 }
 #portfolio{
-    background-color: #bfbfbf;
+    background-color: white;
 }
 #image_title{
     color: maroon;
    /* font-weight: bold;*/
     font-size: 45px;
-    font-family: cursive;
 }
 
 html,
