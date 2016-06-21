@@ -16,7 +16,7 @@ app.controller("MainCtrl", function($scope, $http) {
     //Store the tags
 var CLAR_URL = "https://api.clarifai.com/v1/tag/"
 
-$scope.callClarifai = function(imageData, incidentID) {
+$scope.generateCaption = function(image) {
  var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
  + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
 var pictags = {};
@@ -24,8 +24,9 @@ $http({
   method: "GET",
   url: finalClarUrl,
 }).then(function(response) {
-  console.log(response.results.classes);
-  pictags = response.results.classes;
+  console.log("yes");
+  pictags = response.data.results[0].result.tag.classes;
+  // pictags = response.results.classes;
 
 });
 };
@@ -53,22 +54,22 @@ $http({
 // var imagesRef = firebase.database().ref().child("images");
 // var images = $firebaseArray(imagesRef);
 // var newImage = ""
-function readURL (input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      console.log(e);
-    // newImage = e.target.result;
-    //  images.$add(newImage);
-    //  $scope.newImage = "";
-      $('#blah')
-      .attr('src', e.target.result)
-      .width(450)
-      .height(350);
-    };
-    reader.readAsDataURL(input.files[0]);
-  };
-}
+// function readURL (input) {
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//     reader.onload = function (e) {
+//       console.log(e);
+//     // newImage = e.target.result;
+//     //  images.$add(newImage);
+//     //  $scope.newImage = "";
+//       $('#blah')
+//       .attr('src', e.target.result)
+//       .width(450)
+//       .height(350);
+//     };
+//     reader.readAsDataURL(input.files[0]);
+//   };
+// }
 
 
 

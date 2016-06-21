@@ -109,9 +109,13 @@
                         <div class="col-md-6">
                             <div class="portfolio-item">
 
-                                <input id="image_input" class="btn btn-dark" type='file' onchange="readURL(this)" />
-                                <img id="blah" src="#" alt="Your Image"/>
-                                <button ng-click="callClarifai()">Generate Caption</button> 
+                                <!-- <input id="image_input" class="btn btn-dark" type='file' onchange="readURL(this)" />
+                                <img id="blah" src="#" alt="Your Image"/> -->
+                                <label>URL:
+                                <input type="url" name="input" ng-model="imgURL" required>
+                                <label>
+                                <button ng-click="generateCaption()">Generate Caption</button> 
+                                <img src="{{imgURL}}">
 
                             </div>
                         </div>
