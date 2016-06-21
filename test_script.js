@@ -1,6 +1,20 @@
 //When the generate button is clicked
   //Pass the image to the clarifai API
   //Store the tags
+var CLAR_URL = "https://api.clarifai.com/v1/tag/"
+function callClarifai(image)
+{
+ var finalClarUrl = CLAR_URL + "?encoded_data=" + image 
+ + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
+var pictags = {};
+$http({
+  method: "POST",
+  url: finalClarUrl,
+}).then(function(response) {
+  console.log(response.results.classes);
+  pictags = response.results.classes;
+
+});
 
   //Call the Kanye API for an album to get all the songs
   $http({
