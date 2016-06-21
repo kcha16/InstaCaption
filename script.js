@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
   })
 });
 
-app.controller("MainCtrl", function($scope, $http, $firebaseArray) {
+app.controller("MainCtrl", function($scope, $http) {
 
 
   //When the generate button is clicked
@@ -30,24 +30,7 @@ $http({
 });
 };
 
-var imagesRef = firebase.database().ref().child("images");
-var images = $firebaseArray(imagesRef);
-var newImage = ""
-function readURL (input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-    newImage = e.target.result;
-     images.$add(newImage);
-     $scope.newImage = "";
-      $('#blah')
-      .attr('src', e.target.result)
-      .width(450)
-      .height(350);
-    };
-    reader.readAsDataURL(input.files[0]);
-  };
-}
+
 });
 
     //Call the Kanye API for an album to get all the songs
@@ -64,13 +47,20 @@ function readURL (input) {
     //For each line
       //Increment a counter for each appearance of a tag 
     //Return the line with the most tags
+
 //image upload function
 
+// var imagesRef = firebase.database().ref().child("images");
+// var images = $firebaseArray(imagesRef);
+// var newImage = ""
 function readURL (input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-     
+      console.log(e);
+    // newImage = e.target.result;
+    //  images.$add(newImage);
+    //  $scope.newImage = "";
       $('#blah')
       .attr('src', e.target.result)
       .width(450)
@@ -79,7 +69,6 @@ function readURL (input) {
     reader.readAsDataURL(input.files[0]);
   };
 }
-
 
 
 
