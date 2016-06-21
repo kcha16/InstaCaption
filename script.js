@@ -1,5 +1,6 @@
 var app = angular.module("CaptionApp", ["ngRoute"]);
 var firebaseRef = "https://instacaption-ad842.firebaseio.com";
+var MUSIXMATCH_KEY = "db74e53478c2331ea2fb4d24b0c084fc";
 
 app.config(function($routeProvider) {
   $routeProvider.when("/", {
@@ -12,42 +13,39 @@ app.controller("MainCtrl", function($scope, $http) {
 
   //When the generate button is clicked
   //Take stored URl link (ng-model imgURL) and put it into Clarifai
-    //Pass the image to the clarifai API
-    //Store the tags
-var CLAR_URL = "https://api.clarifai.com/v1/tag/"
+  //Pass the image to the clarifai API
+  //Store the tags
+  var CLAR_URL = "https://api.clarifai.com/v1/tag/"
 
-$scope.generateCaption = function(image) {
- var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
- + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
-var pictags = {};
-$http({
-  method: "GET",
-  url: finalClarUrl,
-}).then(function(response) {
-  console.log("yes");
-  pictags = response.data.results[0].result.tag.classes;
-  // pictags = response.results.classes;
+  $scope.generateCaption = function(image) {
+    var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
+    + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
+    $scope.pictags = {};
+    $http({
+      method: "GET",
+      url: finalClarUrl,
+    }).then(function(response) {
+      $scope.pictags = response.data.results[0].result.tag.classes;
+      console.log($scope.pictags);
+    });
+
+    var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc&q_artist=drake";
+    $http({
+      method: "GET",
+      url: URL,
+      params: {
+        q_lyrics: $scope.pictags[0]
+      }
+    }).then(function(response) {
+      //$scope.song = reponse.body.tracklist[0];
+      console.log(response.data);
+    });
+  };
 
 });
-};
 
 
-});
 
-    //Call the Kanye API for an album to get all the songs
-    // $http({
-    //   method: "GET",
-    //   url: "http://www.kanyerest.xyz/api/album/the_life_of_pablo",
-    // }).then(function(response) {
-    //   console.log(response.data);
-    // });
-
-
-    //Store the lyrics for each song
-    //Split the lyrics of each song into individual lines
-    //For each line
-      //Increment a counter for each appearance of a tag 
-    //Return the line with the most tags
 
 //image upload function
 
