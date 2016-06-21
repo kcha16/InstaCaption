@@ -11,16 +11,17 @@ app.controller("MainCtrl", function($scope, $http, $firebaseArray) {
 
 
   //When the generate button is clicked
+  //Take stored URl link (ng-model imgURL) and put it into Clarifai
     //Pass the image to the clarifai API
     //Store the tags
 var CLAR_URL = "https://api.clarifai.com/v1/tag/"
 
-$scope.callClarifai = function(image) {
- var finalClarUrl = CLAR_URL + "?encoded_data=" +  
+$scope.callClarifai = function(imageData, incidentID) {
+ var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
  + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
 var pictags = {};
 $http({
-  method: "POST",
+  method: "GET",
   url: finalClarUrl,
 }).then(function(response) {
   console.log(response.results.classes);
