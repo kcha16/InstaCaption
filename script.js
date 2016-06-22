@@ -17,7 +17,7 @@ app.controller("MainCtrl", function($scope, $http) {
   //Pass the image to the clarifai API
   //Store the tags
   var CLAR_URL = "https://api.clarifai.com/v1/tag/"
-  var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc&q_artist=drake";
+  var URL = "https://api.musixmatch.com/ws/1.1/track.search"
 
   $scope.generateCaption = function(image) {
     var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
@@ -29,24 +29,30 @@ app.controller("MainCtrl", function($scope, $http) {
     }).then(function(response) {
       $scope.pictags = response.data.results[0].result.tag.classes;
       console.log($scope.pictags);
+      $scope.getSong($scope.pictags);
     });
+  };
 
-    
+  $scope.getSong = function(pictags) {
+    console.log("NEW FUNCTION");
+    console.log(pictags[0]);
     $http({
       method: 'GET',
       url: URL,
       params: {
+        q_artist: "drake",
         q_lyrics: $scope.pictags[0],
         format: 'jsonp',
-        json_callback: 'JSON_CALLBACK'
+        json_callback: 'JSON_CALLBACK',
+        apikey: "db74e53478c2331ea2fb4d24b0c084fc"
       }
     }).then(function(response) {
       // $scope.song = reponse.body.tracklist[0];
+      console.log($scope.pictags);
       console.log(response );
       console.log("hey");
     });
-  };
-
+  }
 });
 
 
