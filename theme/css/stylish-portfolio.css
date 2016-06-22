@@ -10,20 +10,34 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(https://www.xmple.com/wallpaper/gradient-blue-white-linear-1920x1080-c2-fffff0-b0c4de-a-60-f-14.svg) no-repeat center center scroll;
+    background-color: black;
+    color: white;
+    /*background: url(https://www.xmple.com/wallpaper/gradient-blue-white-linear-1920x1080-c2-fffff0-b0c4de-a-60-f-14.svg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
+}
+#captions {
+    width: 100%;
+    height: 350px;
+}
+#six {
+    text-align: center;
+    width: 250px;
+    height: 250px;
 }
 
+#top {
+    background-color: white;
+}
 
 
 #heading{
-    color: maroon;
+    color: black;
 }
 #sub_heading{
-    color: maroon;
+    color: black;
 }
 #input_image{
     width: 100%;
@@ -39,19 +53,19 @@
     /*line-height: 100%;*/
     font-family: serif;
     margin-bottom: -26px;
-    margin-left: 280px;
+    margin-left: 220px;
 }
 #url_input{
     margin-left: 430px;
     width: 200px;
     border: 2px solid darkgrey;
     border-style: groove;
-    background-color: #d9d9d9;
+    background-color: white;
 }
 #caption_button{
-    background-color: #a8d0e6;
-    border: none;
-    color: #005580;
+    background-color: white;
+    border: 2px solid black;
+    color: #FFCC00;
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -59,14 +73,14 @@
     display: inline-block;
     font-size: 20px;
     margin-top: 30px;
-    margin-left: 400px;
+    margin-left: 380px;
     cursor: pointer;
     border-radius: 5px;
     width: 200px;
 }
 #caption_button:hover{
-    background-color: #bfbfbf;
-    color: maroon;
+    background-color: black;
+    color: #FFCC00;
     transition: 0.4s;
 }
 
@@ -74,10 +88,10 @@
     /*background-color: #FFFFF0;*/
 }
 #image_title{
-    color: maroon;
+    color: white;
    /* font-weight: bold;*/
     font-size: 45px;
-    margin-top: -15px;
+    margin-top: 25px;
 }
 
 html,
@@ -229,12 +243,13 @@ hr.small {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(http://www.retinaiphonewallpapers.com/wp-content/uploads/00095.png) no-repeat center center scroll;
+    background-color: white;
+/*    background: url(http://www.retinaiphonewallpapers.com/wp-content/uploads/00095.png) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
+}*/
 
 /* About */
 
