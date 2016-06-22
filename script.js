@@ -28,14 +28,16 @@ app.controller("MainCtrl", function($scope, $http) {
     }).then(function(response) {
       $scope.pictags = response.data.results[0].result.tag.classes;
       console.log($scope.pictags);
+      $scope.getSong($scope.pictags);
     });
+  }
 
-    
+  $scope.getSongs = function(pictags) {
     $http({
       method: 'GET',
       url: URL,
       params: {
-        q_lyrics: $scope.pictags[0],
+        q_lyrics: pictags[0],
         format: 'jsonp',
         json_callback: 'JSON_CALLBACK'
       }
@@ -44,7 +46,7 @@ app.controller("MainCtrl", function($scope, $http) {
       console.log(response );
       console.log("hey");
     });
-  };
+  }
 
 });
 
@@ -72,6 +74,3 @@ app.controller("MainCtrl", function($scope, $http) {
 //     reader.readAsDataURL(input.files[0]);
 //   };
 // }
-
-
-
