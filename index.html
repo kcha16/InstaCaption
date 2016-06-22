@@ -91,8 +91,8 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>Start Bootstrap</h1>
-            <h3>Free Bootstrap Themes &amp; Templates</h3>
+            <h1 id="heading">InstaCaption</h1>
+            <h3 id="sub_heading">Caption Generator</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
         </div>
@@ -111,11 +111,10 @@
 
                                 <!-- <input id="image_input" class="btn btn-dark" type='file' onchange="readURL(this)" />
                                 <img id="blah" src="#" alt="Your Image"/> -->
-                                <label>URL:
-                                <input type="url" name="input" ng-model="imgURL" required>
-                                <label>
-                                <button ng-click="generateCaption()">Generate Caption</button> 
-                                <img src="{{imgURL}}">
+                                <p id="url_heading">Enter URL :</p>
+                                <input type="url" name="input" ng-model="imgURL" required id="url_input">
+                                <img src="{{imgURL}}" id="input_image">
+                                 <button ng-click="generateCaption()" id="caption_button">Generate Caption</button> 
 
                             </div>
                         </div>
