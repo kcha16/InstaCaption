@@ -30,8 +30,9 @@ app.controller("MainCtrl", function($scope, $http) {
       console.log($scope.pictags);
       $scope.getSong($scope.pictags);
     });
+  }
 
-  $scope.getSongs = function(pictags)
+  $scope.getSongs = function(pictags) {
     $http({
       method: 'GET',
       url: URL,
@@ -45,7 +46,7 @@ app.controller("MainCtrl", function($scope, $http) {
       console.log(response );
       console.log("hey");
     });
-  };
+  }
 
 });
 
