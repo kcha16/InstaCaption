@@ -1,3 +1,4 @@
+
 var app = angular.module("CaptionApp", ["ngRoute"]);
 var firebaseRef = "https://instacaption-ad842.firebaseio.com";
 var MUSIXMATCH_KEY = "db74e53478c2331ea2fb4d24b0c084fc";
@@ -16,6 +17,8 @@ app.controller("MainCtrl", function($scope, $http) {
   //Pass the image to the clarifai API
   //Store the tags
   var CLAR_URL = "https://api.clarifai.com/v1/tag/"
+  var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc&q_artist=drake";
+
   $scope.generateCaption = function(image) {
     var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
     + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
@@ -28,16 +31,19 @@ app.controller("MainCtrl", function($scope, $http) {
       console.log($scope.pictags);
     });
 
-    var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc&q_artist=drake";
+    
     $http({
-      method: "JSONP",
+      method: 'GET',
       url: URL,
       params: {
-        q_lyrics: $scope.pictags[0]
+        q_lyrics: $scope.pictags[0],
+        format: 'jsonp',
+        json_callback: 'JSON_CALLBACK'
       }
     }).then(function(response) {
-      //$scope.song = reponse.body.tracklist[0];
-      console.log(response);
+      // $scope.song = reponse.body.tracklist[0];
+      console.log(response );
+      console.log("hey");
     });
   };
 
@@ -67,6 +73,3 @@ app.controller("MainCtrl", function($scope, $http) {
 //     reader.readAsDataURL(input.files[0]);
 //   };
 // }
-
-
-
