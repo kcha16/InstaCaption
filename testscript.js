@@ -26,7 +26,7 @@ app.controller("MainCtrl", function($scope, $http) {
   $scope.generateCaption = function(image) {
     $scope.finalCaption = [];
     var finalClarUrl = CLAR_URL + "?url=" + $scope.imgURL
-    + "&access_token=Bq04JXvoE2SKwpcBkkArPPsjUk9vHu";
+    + "&access_token=hym2EFZmjn2Mj9I8uksfs8VUa4hI1Q";
     $scope.pictags = {};
     $http({
       method: "GET",
@@ -90,11 +90,10 @@ app.controller("MainCtrl", function($scope, $http) {
         var allLyrics = (response.data.message.body.lyrics.lyrics_body).split("\n");
         for (var j = 0; j < allLyrics.length; j++) {
           $scope.lyricsArray.push(allLyrics[j]);
-          $scope.findBestMatch();
         }
       });
-      //if (i === songID.length - 1)
-        //console.log($scope.lyricsArray);
+      if (i === songID.length - 1)
+        $console.log($scope.lyricsArray);
     }
   }
 
@@ -103,7 +102,7 @@ app.controller("MainCtrl", function($scope, $http) {
     //Get the lyrics for the song
     var length = $scope.lyricsArray.length;
     $scope.matchScores = [];
-    //console.log($scope.lyricsArray);
+    console.log($scope.lyricsArray);
     //For each line
     for (var i = 0; i < length; i++) {
       var counter = 0;
@@ -114,15 +113,14 @@ app.controller("MainCtrl", function($scope, $http) {
       $scope.matchScores.push(counter);
     }
 
-    $scope.maxIndex = 0;
+    var maxIndex = 0;
     for (var i = 0; i < $scope.matchScores.length; i++) {
-      if ($scope.matchScores[i] > $scope.matchScores[$scope.maxIndex])
-        $scope.maxIndex = i;
+      if ($scope.matchScores[i] > $scope.matchScores[maxIndex])
+        maxIndex = i;
     }
-    //console.log($scope.matchScores[maxIndex]);
-    //console.log($scope.lyricsArray[maxIndex-1], $scope.lyricsArray[maxIndex], $scope.lyricsArray[maxIndex+1]);
+
+    //$scope.finalCaption.push($scope.lyricsArray[maxIndex-1], $scope.lyricsArray[maxIndex], $scope.lyricsArray[maxIndex+1]);
     //console.log($scope.matchScores);
-    $scope.finalCaption = [$scope.lyricsArray[$scope.maxIndex-1], $scope.lyricsArray[$scope.maxIndex], $scope.lyricsArray[$scope.maxIndex+1]];
   }
 });
 
