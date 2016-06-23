@@ -108,14 +108,9 @@ app.controller("MainCtrl", function($scope, $http) {
         maxIndex = i;
     }
 
+    $scope.finalCaption = $scope.lyricsArray[maxIndex-1] + $scope.lyricsArray[maxIndex] + $scope.lyricsArray[maxIndex+1];
     console.log($scope.matchScores);
     console.log($scope.lyricsArray);
-    console.log($scope.lyricsArray[maxIndex-2]);
-    console.log($scope.lyricsArray[maxIndex-1]);
-    console.log($scope.lyricsArray[maxIndex]);
-    console.log($scope.lyricsArray[maxIndex+1]);
-    console.log($scope.lyricsArray[maxIndex+2]);
-
   }
 });
 
