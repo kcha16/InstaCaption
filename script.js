@@ -130,6 +130,7 @@ app.controller("MainCtrl", function($scope, $http) {
 
 
 
+
 //image upload function
 
 // var imagesRef = firebase.database().ref().child("images");
