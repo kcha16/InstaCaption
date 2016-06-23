@@ -107,7 +107,7 @@
                     <h2 id="image_title">Upload Image</h2>
                     <hr class="small">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-md-offset-3">
                             <div class="portfolio-item">
 
                                 <!-- <input id="image_input" class="btn btn-dark" type='file' onchange="readURL(this)" />
@@ -116,7 +116,11 @@
                                 <input type="url" name="input" ng-model="imgURL" required id="url_input">
                                 <img ng-src={{imgURL}} id="input_image">
                                  <button ng-click="generateCaption()" id="caption_button">Generate Caption</button> 
-                                <div id="final-caption" ng-model="finalCaption">{{finalCaption}}</div>
+                                <div id="full-caption">
+                                    <div id="final-caption" ng-repeat="cap in finalCaption">
+                                        <p>{{cap}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

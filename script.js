@@ -20,8 +20,11 @@ app.controller("MainCtrl", function($scope, $http) {
   var artistQ = "&q_artist=drake";
   var songURL = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=db74e53478c2331ea2fb4d24b0c084fc";
   var artistURL = URL + artistQ;
+  $scope.finalCaption = [];
+
   // var imgURL = "http://res.cloudinary.com/thefader/image/upload/s--rYwbwMNa--/w_1440,c_limit,q_jpegmini/Fader_Drake_Peckmezian_high_res_v3-2015-08-31_010_auffnh.jpg";
   $scope.generateCaption = function(image) {
+    $scope.finalCaption = [];
     var finalClarUrl = CLAR_URL + "?url=" + $scope.imgURL
     + "&access_token=hym2EFZmjn2Mj9I8uksfs8VUa4hI1Q";
     $scope.pictags = {};
@@ -108,9 +111,8 @@ app.controller("MainCtrl", function($scope, $http) {
         maxIndex = i;
     }
 
-    $scope.finalCaption = $scope.lyricsArray[maxIndex-1] + $scope.lyricsArray[maxIndex] + $scope.lyricsArray[maxIndex+1];
+    $scope.finalCaption.push($scope.lyricsArray[maxIndex-1], $scope.lyricsArray[maxIndex], $scope.lyricsArray[maxIndex+1]);
     console.log($scope.matchScores);
-    console.log($scope.lyricsArray);
   }
 });
 
