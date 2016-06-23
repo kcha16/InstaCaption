@@ -30,6 +30,12 @@
 
 #top {
     background-color: white;
+    height: 650px;
+}
+#siteName {
+    text-align: center;
+    font-weight: bold;
+    font-size: 100px;
 }
 
 
@@ -52,7 +58,7 @@
     font-size: 20px;
     /*line-height: 100%;*/
     /*font-family: serif;*/
-    margin-bottom: -26px;
+    margin-bottom: -10px;
     /*margin-left: 220px;*/
 }
 #url_input{
@@ -64,7 +70,21 @@
     color: black; 
     font-weight: bold;  
 }
-#caption_button{
+#url {
+    float: left;
+}
+#artist {
+    float: right;
+}
+#artist_heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+#artist_name {
+    color: black;
+    font-weight: bold;
+}
+.caption_button{
     background-color: white;
     border: 2px solid black;
     color: #FFCC00;
@@ -81,7 +101,7 @@
     border-radius: 5px;
     width: 200px;
 }
-#caption_button:hover{
+.caption_button:hover{
     background-color: black;
     color: #FFCC00;
     transition: 0.4s;
@@ -91,6 +111,10 @@
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+}
+#insta_image {
+    width: 50px;
+    height: 50px;
 }
 
 #portfolio{

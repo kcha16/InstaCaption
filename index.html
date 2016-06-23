@@ -91,11 +91,13 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <img id="captions" src="./captions.png">
-            <img id="six" src="./6.png">
-            <!-- <h3 id="sub_heading">See How Drake Would Caption Your Photo</h3> -->
-           
-            <!-- <a href="#about" class="btn btn-dark btn-lg">Find Out More</a> -->
+        <p id ="siteName"> Cap That </p>
+
+            <!-- <img id="captions" src="./captions.png">
+            <img id="six" src="./6.png"> -->
+            <h3 id="sub_heading">Every Picture Deserves the Perfect Caption</h3>
+           <br>
+            <a href="#portfolio" class="btn btn-dark btn-lg">Try It</a>
         </div>
     </header>
 
@@ -112,10 +114,19 @@
 
                                 <!-- <input id="image_input" class="btn btn-dark" type='file' onchange="readURL(this)" />
                                 <img id="blah" src="#" alt="Your Image"/> -->
+                                <div id="url">
                                 <p id="url_heading">Enter Image URL :</p>
+                                <br>
                                 <input type="url" name="input" ng-model="imgURL" required id="url_input">
+                                </div>
+                               
+                                <div id="arist">
+                                <p id="artist_heading">Enter Artist Name :</p>
+                                <input type="text" id="artist_name">
+                                </div>
                                 <img ng-src={{imgURL}} id="input_image">
-                                 <button ng-click="generateCaption()" id="caption_button">Generate Caption</button> 
+                                 <button ng-click="generateCaption()" class="caption_button">Generate Caption</button> 
+                                 <button class="caption_button">Push to Instagram</button> 
                                 <div id="full-caption">
                                     <div id="final-caption" ng-repeat="cap in finalCaption">
                                         <p>{{cap}}</p>
@@ -154,12 +165,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
+                    <h4><strong>Cap That</strong>
                     </h4>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                    <p>iXperience<br>Web Dev Session 1</p>
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                        <li><i class="fa fa-phone fa-fw"></i> Call for a Caption</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">contact@capthat.com</a>
                         </li>
                     </ul>
                     <br>
@@ -175,7 +186,7 @@
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="text-muted">Copyright &copy; CapThat 2016</p>
                 </div>
             </div>
         </div>
