@@ -16,10 +16,12 @@ app.controller("MainCtrl", function($scope, $http) {
   //Pass the image to the clarifai API
   //Store the tags
   var CLAR_URL = "https://api.clarifai.com/v1/tag/"
-  var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc&q_artist=drake";
-
+  var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc"
+  var artistQ = "&q_artist=drake";
+  var artistURL = URL + artistQ;
+  // var imgURL = "http://res.cloudinary.com/thefader/image/upload/s--rYwbwMNa--/w_1440,c_limit,q_jpegmini/Fader_Drake_Peckmezian_high_res_v3-2015-08-31_010_auffnh.jpg";
   $scope.generateCaption = function(image) {
-    var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
+    var finalClarUrl = CLAR_URL + "?url=" + $scope.imgURL
     + "&access_token=OTB6exTZ3uGdwxtkJ294dwnKsT6CLG";
     $scope.pictags = {};
     $http({
@@ -28,25 +30,24 @@ app.controller("MainCtrl", function($scope, $http) {
     }).then(function(response) {
       $scope.pictags = response.data.results[0].result.tag.classes;
       console.log($scope.pictags);
-      $scope.getSong($scope.pictags);
+      $scope.getSongs($scope.pictags);
     });
   }
 
   $scope.getSongs = function(pictags) {
-    $http({
+    $http.jsonp(artistURL, {
       method: 'GET',
-      url: URL,
       params: {
         q_lyrics: pictags[0],
         format: 'jsonp',
-        json_callback: 'JSON_CALLBACK'
+        callback: 'JSON_CALLBACK'
       }
     }).then(function(response) {
       // $scope.song = reponse.body.tracklist[0];
-      console.log(response );
-      console.log("hey");
+      console.log(response);
     });
   }
+  // $scope.generateCaption();
 
 });
 

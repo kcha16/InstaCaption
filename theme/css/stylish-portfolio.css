@@ -61,6 +61,8 @@
     border: 2px solid darkgrey;
     border-style: groove;
     background-color: white;
+    color: black; 
+    font-weight: bold;  
 }
 #caption_button{
     background-color: white;
