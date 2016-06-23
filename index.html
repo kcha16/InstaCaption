@@ -114,7 +114,7 @@
                                 <img id="blah" src="#" alt="Your Image"/> -->
                                 <p id="url_heading">Enter Image URL :</p>
                                 <input type="url" name="input" ng-model="imgURL" required id="url_input">
-                                <img src="{{imgURL}}" id="input_image">
+                                <img ng-src={{imgURL}} id="input_image">
                                  <button ng-click="generateCaption()" id="caption_button">Generate Caption</button> 
 
                             </div>
