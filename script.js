@@ -20,7 +20,7 @@ app.controller("MainCtrl", function($scope, $http) {
 
   $scope.generateCaption = function(image) {
     var finalClarUrl = CLAR_URL + "?url=" +  $scope.imgURL
-    + "&access_token=35gc7kd0Zt5LkpkGOrXfH0hlBlti1P";
+    + "&access_token=OTB6exTZ3uGdwxtkJ294dwnKsT6CLG";
     $scope.pictags = {};
     $http({
       method: "GET",
