@@ -123,7 +123,8 @@ app.controller("MainCtrl", function($scope, $http) {
     //console.log($scope.lyricsArray[maxIndex-1], $scope.lyricsArray[maxIndex], $scope.lyricsArray[maxIndex+1]);
     //console.log($scope.matchScores);
     //$scope.finalCaption = [$scope.lyricsArray[$scope.maxIndex-1], $scope.lyricsArray[$scope.maxIndex], $scope.lyricsArray[$scope.maxIndex+1]];
-    $scope.finalCaption = ["Caught the wave, I ain't surfin'", "You do what you want when you poppin'"];
+    $scope.finalCaption = ["\" Caught the wave, I ain't surfin'", "You do what you want when you poppin' \""];
+    $scope.lightSwitch = true;
   }
 });
 
