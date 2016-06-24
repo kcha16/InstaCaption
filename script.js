@@ -34,6 +34,7 @@ app.controller("MainCtrl", function($scope, $http) {
     }).then(function(response) {
       $scope.pictags = response.data.results[0].result.tag.classes;
       console.log($scope.pictags);
+      $scope.showTags($scope.pictags);
       $scope.getSongs($scope.pictags);
     });
   }
@@ -64,6 +65,14 @@ app.controller("MainCtrl", function($scope, $http) {
 
       });
     //}
+  }
+
+  $scope.showTags = function(pictags) {
+    $scope.allTags = "Top Tags Found: board, ";
+    for (var i=0; i < 5; i++) {
+      $scope.allTags += pictags[i] + ", "
+    }
+    $scope.allTags += pictags[5];
   }
 
   var tagsParam = function(pictags) {

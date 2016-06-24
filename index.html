@@ -93,7 +93,9 @@
             <p class="sample-caption">go all the way up."<p>
             <p id="attrib"> — Fat Joe, <span id="song-title"> All the Way Up</span></p>
         </div>
-        <a href="#portfolio" class="btn btn-dark btn-lg" id="try-it">Try It</a>
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#portfolio" class="btn btn-dark btn-lg" id="try-it">Try It</a>
+        </div>
     </header>
 
     <!-- Portfolio -->
@@ -122,13 +124,16 @@
                                 <img ng-src={{imgURL}} id="input_image">
                                  <button ng-click="generateCaption()" class="caption_button">Generate Caption</button> 
                                  <button class="caption_button">Post to Instagram</button> 
-                                <div id="full-caption">
+                                 <div id="alltags" ng-model="allTags">
+                                    {{allTags}}
+                                </div>
+                                <div id="full-caption" ng-show="lightSwitch">
                                     <div id="final-caption" ng-repeat="cap in finalCaption">
                                         <p>{{cap}}</p>
                                     </div>
-                                </div>
-                                <div ng-show="lightSwitch">
-                                    <p id="attribution"> — Drake, <span id="song-name"> Jersey</span></p>
+                                    <div>
+                                        <p id="attribution"> — Drake, <span id="song-name"> Jersey</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
