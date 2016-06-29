@@ -119,7 +119,7 @@
                                
                                 <div id="arist">
                                 <p id="artist_heading">Enter Artist Name :</p>
-                                <input type="text" id="artist_name">
+                                <input type="text" id="artist_name" ng-model="artistName">
                                 </div>
                                 <img ng-src={{imgURL}} id="input_image">
                                  <button ng-click="generateCaption()" class="caption_button">Generate Caption</button> 
@@ -128,11 +128,11 @@
                                     {{allTags}}
                                 </div>
                                 <div id="full-caption" ng-show="lightSwitch">
-                                    <div id="final-caption" ng-repeat="cap in finalCaption">
+                                    <div id="final-caption" ng-repeat="cap in finalCaption track by $index">
                                         <p>{{cap}}</p>
                                     </div>
                                     <div>
-                                        <p id="attribution"> — Drake, <span id="song-name"> Jersey</span></p>
+                                        <p id="attribution"> — {{artistName}} <span id="song-name"> </span></p>
                                     </div>
                                 </div>
                             </div>

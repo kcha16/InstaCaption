@@ -17,16 +17,16 @@ app.controller("MainCtrl", function($scope, $http) {
   //Store the tags
   var CLAR_URL = "https://api.clarifai.com/v1/tag/";
   var URL = "https://api.musixmatch.com/ws/1.1/track.search?apikey=db74e53478c2331ea2fb4d24b0c084fc";
-  var artistQ = "&q_artist=drake";
+  var artistQ = "&q_artist=";
   var songURL = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=db74e53478c2331ea2fb4d24b0c084fc";
-  var artistURL = URL + artistQ;
   $scope.finalCaption = [];
 
-  // var imgURL = "http://res.cloudinary.com/thefader/image/upload/s--rYwbwMNa--/w_1440,c_limit,q_jpegmini/Fader_Drake_Peckmezian_high_res_v3-2015-08-31_010_auffnh.jpg";
   $scope.generateCaption = function(image) {
+    console.log($scope.artistName);
+    artistURL = URL + artistQ + $scope.artistName;
     $scope.finalCaption = [];
     var finalClarUrl = CLAR_URL + "?url=" + $scope.imgURL
-    + "&access_token=Bq04JXvoE2SKwpcBkkArPPsjUk9vHu";
+    + "&access_token=52AgY8i439YZnFw5oPVfzGyfas1dtv";
     $scope.pictags = {};
     $http({
       method: "GET",
@@ -68,7 +68,7 @@ app.controller("MainCtrl", function($scope, $http) {
   }
 
   $scope.showTags = function(pictags) {
-    $scope.allTags = "Top Tags Found: board, ";
+    $scope.allTags = "Top Tags Found: ";
     for (var i=0; i < 5; i++) {
       $scope.allTags += pictags[i] + ", "
     }
@@ -128,11 +128,12 @@ app.controller("MainCtrl", function($scope, $http) {
       if ($scope.matchScores[i] > $scope.matchScores[$scope.maxIndex])
         $scope.maxIndex = i;
     }
+
+    console.log($scope.matchScores[$scope.maxIndex] + " tags in " + $scope.lyricsArray[$scope.maxIndex]);
     //console.log($scope.matchScores[maxIndex]);
     //console.log($scope.lyricsArray[maxIndex-1], $scope.lyricsArray[maxIndex], $scope.lyricsArray[maxIndex+1]);
     //console.log($scope.matchScores);
-    //$scope.finalCaption = [$scope.lyricsArray[$scope.maxIndex-1], $scope.lyricsArray[$scope.maxIndex], $scope.lyricsArray[$scope.maxIndex+1]];
-    $scope.finalCaption = ["\" Caught the wave, I ain't surfin'", "You do what you want when you poppin' \""];
+    $scope.finalCaption = [$scope.lyricsArray[$scope.maxIndex-1], $scope.lyricsArray[$scope.maxIndex], $scope.lyricsArray[$scope.maxIndex+1]];
     $scope.lightSwitch = true;
   }
 });
